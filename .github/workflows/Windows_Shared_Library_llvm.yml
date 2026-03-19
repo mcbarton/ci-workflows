@@ -73,6 +73,5 @@ jobs:
               -DLLVM_INCLUDE_TESTS=OFF                         `
               -DLLVM_BUILD_TOOLS=OFF                           `
               -DCLANG_BUILD_TOOLS=OFF                          `
-              -DLLVM_INCLUDE_TOOLS=OFF                         `
               -DCLANG_LINK_CLANG_DYLIB=On                                 
         Error-On-Failure { cmake --build build --config RelWithDebInfo --parallel ${{ env.ncpus }} }
