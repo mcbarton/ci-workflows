@@ -70,6 +70,7 @@ jobs:
               -DCLANG_ENABLE_STATIC_ANALYZER=OFF                  `
               -DLLVM_INCLUDE_BENCHMARKS=OFF                    `
               -DLLVM_INCLUDE_EXAMPLES=OFF                      `
+              -DLLVM_INCLUDE_TESTS=OFF                         `
               -DLLVM_BUILD_TOOLS=OFF                           `
               -DCLANG_BUILD_TOOLS=OFF                          `
               -DLLVM_INCLUDE_TOOLS=OFF                         `
