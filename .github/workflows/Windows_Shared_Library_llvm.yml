@@ -16,9 +16,8 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
-        repository: mcbarton/llvm-project 
+        repository: llvm/llvm-project 
         path: ${{ github.workspace }}/llvm
-        ref: 30cd3d5a048c3e8e726263cd181f5cd13e759ff6 
 
     - name: Setup default Build Type on Windows
       run: |
@@ -68,5 +67,6 @@ jobs:
               -DLLVM_INCLUDE_TESTS=OFF                         `
               -DLLVM_BUILD_TOOLS=OFF                           `
               -DCLANG_BUILD_TOOLS=OFF                          `
+	      -DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON            `
               -DCLANG_LINK_CLANG_DYLIB=On                                 
         Error-On-Failure { cmake --build build --config RelWithDebInfo --parallel ${{ env.ncpus }} }
