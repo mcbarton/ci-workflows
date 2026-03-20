@@ -18,7 +18,7 @@ jobs:
       with:
         repository: mcbarton/llvm-project 
         path: ${{ github.workspace }}/llvm
-        ref: 3d8fffec7b660a6bbbc3c156400e49cb1a28ac3c 
+        ref: 1d262442b7bb8b05c08576aa2ef9846067bcae1c 
 
     - name: Setup default Build Type on Windows
       run: |
