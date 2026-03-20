@@ -1,4 +1,4 @@
-name: Build LLVM/CLANG as shared library on Windows
+name: Build LLVM/CLANG as shared library on Windows (below)
 on:
   pull_request:
     branches: [main]
@@ -18,7 +18,7 @@ jobs:
       with:
         repository: mcbarton/llvm-project 
         path: ${{ github.workspace }}/llvm
-        ref: 3d8fffec7b660a6bbbc3c156400e49cb1a28ac3c 
+        ref: e17de2ec232296f56d497b7be068b14769a89619 
 
     - name: Setup default Build Type on Windows
       run: |
