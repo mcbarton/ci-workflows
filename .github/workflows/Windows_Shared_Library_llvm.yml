@@ -18,6 +18,8 @@ jobs:
       with:
         repository: mcbarton/llvm-project 
         path: ${{ github.workspace }}/llvm
+        fetch-depth: 0
+        ref: 'main_new'
 
     - name: Setup default Build Type on Windows
       run: |
@@ -52,7 +54,6 @@ jobs:
         cd ${{ github.workspace }}/llvm
         cmake -S ./llvm/ -B build -G Ninja                `
               -DCMAKE_ASM_MASM_FLAGS="-m64"     `
-              -DLLVM_ENABLE_PROJECTS="clang"              `
               -DLLVM_ENABLE_PLUGINS=On                    `
               -DLLVM_TARGETS_TO_BUILD="host"              `
               -DCMAKE_BUILD_TYPE=RelWithDebInfo           `
@@ -61,12 +62,5 @@ jobs:
               -DCMAKE_ASM_MASM_COMPILER=llvm-ml           `
               -DLLVM_BUILD_LLVM_DYLIB_VIS=On              `
               -DLLVM_LINK_LLVM_DYLIB=On                   `
-              -DCLANG_ENABLE_STATIC_ANALYZER=OFF                  `
-              -DLLVM_INCLUDE_BENCHMARKS=OFF                    `
-              -DLLVM_INCLUDE_EXAMPLES=OFF                      `
-              -DLLVM_INCLUDE_TESTS=OFF                         `
-              -DLLVM_BUILD_TOOLS=OFF                           `
-              -DCLANG_BUILD_TOOLS=OFF                          `
-              -DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON            `
-              -DCLANG_LINK_CLANG_DYLIB=On                                 
+              -DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON            
         Error-On-Failure { cmake --build build --config RelWithDebInfo --parallel ${{ env.ncpus }} }
