@@ -64,3 +64,5 @@ jobs:
               -DLLVM_LINK_LLVM_DYLIB=On                   `
               -DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON            
         Error-On-Failure { cmake --build build --config RelWithDebInfo --parallel ${{ env.ncpus }} }
+        Error-On-Failure { cmake --build build --target check-llvm-unit --config RelWithDebInfo --parallel ${{ env.ncpus }} }
+        Error-On-Failure { cmake --build build --target check-llvm --config RelWithDebInfo --parallel ${{ env.ncpus }} }
