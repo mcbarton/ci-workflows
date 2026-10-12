@@ -325,7 +325,7 @@ def main() -> int:
     # EMCC_CFLAGS=-fwasm-exceptions: wasm exception ABI for the targets
     # CppInterOp links against. Build_LLVM_WASM passes this same flag.
     run_in_emsdk("emmake", ["ninja", "-j", ncpus, *WASM_TARGETS],
-                 emsdk_dir, build, EMCC_CFLAGS="-fwasm-exceptions -sVERBOSE=1")
+                 emsdk_dir, build, EMCC_CFLAGS="-fwasm-exceptions -v")
 
     # Install wasm tree. install rules are pure file/cmake-config
     # operations -- no emcc invocation needed beyond what WASM_TARGETS
