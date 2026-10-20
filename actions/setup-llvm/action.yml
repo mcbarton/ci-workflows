@@ -306,7 +306,9 @@ runs:
         # `brew install` exits non-zero on unknown formula; let it
         # propagate to fail the action — the consumer asked for a
         # flavor the host can't satisfy, and there's no fallback.
-        brew install "llvm@${VERSION}"
+        if [[ "$(uname -m)" == "arm64" ]]; then
+          brew install "llvm@${VERSION}"
+        fi
         prefix="$(brew --prefix "llvm@${VERSION}")"
         # `rm -rf` first for idempotency — see Linux branch comment.
         # brew's llvm@N formula bundles compiler-rt as part of the
